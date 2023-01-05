@@ -16,7 +16,7 @@ jobs:
           from google.oauth2.service_account import Credentials
 
           # Load the JSON key file
-          key_file = './kk.JSON'
+          key_file = '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}'
 
           # Create a credentials object from the key file
           credentials = Credentials.from_service_account_file(key_file)
