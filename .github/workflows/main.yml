@@ -53,5 +53,4 @@ jobs:
                       ]
                   }]
               }
-          ).execute()
-          print('Created VM:', vm['name'])
+          )
