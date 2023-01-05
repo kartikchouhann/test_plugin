@@ -1,0 +1,33 @@
+name: Launch GCP VM
+
+on: [push]
+
+jobs:
+  launch-vm:
+    runs-on: ubuntu-latest
+    steps:
+      # Set up the GCP API client
+      - uses: google-auth/setup-google-auth@v1
+        with:
+          client_id: ${{ secrets.GCP_CLIENT_ID }}
+          client_secret: ${{ secrets.GCP_CLIENT_SECRET }}
+          scopes: https://www.googleapis.com/auth/cloud-platform
+      - run: |
+          pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+      # Create the VM
+      - run: |
+          from googleapiclient.discovery import build
+          from googleapiclient.errors import HttpError
+          from google.oauth2.service_account import Credentials
+
+          # Load the JSON key file
+          key_file = '/path/to/key.json'
+
+          # Create a credentials object from the key file
+          credentials = Credentials.from_service_account_file(key_file)
+
+          # Create the Compute Engine client
+          compute = build('compute', 'v1', credentials=credentials)
+
+          # Set the parameters for the new VM
+          project = '
