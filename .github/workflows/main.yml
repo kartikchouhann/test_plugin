@@ -11,7 +11,8 @@ jobs:
           pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
       # Create the VM
       - run: |
-          from googleapiclient.errors import HttpError
+          import googleapiclient.discovery
+          import googleapiclient.errors
           from google.oauth2.service_account import Credentials
 
           # Load the JSON key file
