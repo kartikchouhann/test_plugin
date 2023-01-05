@@ -21,7 +21,7 @@ jobs:
           from google.oauth2.service_account import Credentials
 
           # Load the JSON key file
-          key_file = '/path/to/key.json'
+          key_file = './kk.json'
 
           # Create a credentials object from the key file
           credentials = Credentials.from_service_account_file(key_file)
@@ -30,4 +30,6 @@ jobs:
           compute = build('compute', 'v1', credentials=credentials)
 
           # Set the parameters for the new VM
-          project = '
+          project = 'my-project'
+          zone = 'us-central1-a'
+          name = 'my-vm'
