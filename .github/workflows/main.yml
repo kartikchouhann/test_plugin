@@ -16,7 +16,7 @@ jobs:
           from google.oauth2.service_account import Credentials
 
           # Load the JSON key file
-          key_file = ../../kk.json
+          key_file = '../../kk.json'
 
           # Create a credentials object from the key file
           credentials = Credentials.from_service_account_file(key_file)
@@ -42,7 +42,7 @@ jobs:
                           'boot': True,
                           'autoDelete': True,
                           'initializeParams': {
-                          'sourceImage': 'projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts'
+                          'sourceImage': 'projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20210218'
                           }
                           }
                   ],
@@ -53,4 +53,5 @@ jobs:
                       ]
                   }]
               }
-          )
+          ).execute()
+          print('Created VM: %s' % (vm['name']))
