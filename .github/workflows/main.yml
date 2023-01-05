@@ -11,7 +11,6 @@ jobs:
           pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
       # Create the VM
       - run: |
-          # from googleapiclient.discovery import build
           from googleapiclient.errors import HttpError
           from google.oauth2.service_account import Credentials
 
