@@ -9,7 +9,7 @@ jobs:
       # Set up the GCP API client
       - run: |
           pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-          apt-get install python3-pil python3-tk
+          sudo apt-get install python3-pil python3-tk
       # Create the VM
       - run: |
           import googleapiclient.discovery
