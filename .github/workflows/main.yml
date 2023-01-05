@@ -14,7 +14,8 @@ jobs:
           sudo apt-get install python3-pil python3-tk
 # Create the VM
       - run: |
-
+          import googleapiclient.discovery
+          import googleapiclient.errors
           from google.oauth2.service_account import Credentials
 
           # Load the JSON key file
@@ -27,7 +28,7 @@ jobs:
           compute = build('compute', 'v1', credentials=credentials)
 
           # Set the parameters for the new VM
-          project = 'my-project'
+          project = 'ite-project-370218'
           zone = 'us-central1-a'
           name = 'my-vm'
           machine_type = 'zones/us-central1-a/machineTypes/n1-standard-1'
